@@ -5,7 +5,10 @@
 #          UPDATED: Now runs on LambdaTest cloud
 #          instead of a local emulator
 # -------------------------------------------------------
-
+def test_pipeline_is_working():
+    """Proof the CI pipeline runs successfully."""
+    assert 1 + 1 == 2
+    
 # Import the Appium driver - this is what controls the phone
 from appium import webdriver
 
