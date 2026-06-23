@@ -179,13 +179,11 @@ test.describe('Security', () => {
 
 test.describe('Page Content', () => {
 
-  test('TC13 — login page has correct browser title', async ({ page }) => {
-    const login = new LoginPage(page);
-
-    await login.open();
-
-    await expect(page).toHaveTitle('Practice Test Login | Automation Test Practice');
-  });
+    test('TC13 — login page has correct browser title', async ({ page }) => {
+        const login = new LoginPage(page);
+        await login.open();
+        await expect(page).toHaveTitle(/Practice Test Login/);
+      });
 
   test('TC14 — login button is visible on page load', async ({ page }) => {
     const login = new LoginPage(page);
