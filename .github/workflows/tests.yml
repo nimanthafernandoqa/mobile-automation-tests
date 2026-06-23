@@ -1,4 +1,4 @@
-name: Mobile Login Tests
+name: Login Tests
 
 on:
   push:
@@ -12,26 +12,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
+          node-version: '20'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: npm ci
 
-      - name: Run tests
-        run: |
-          pytest test_login.py -v \
-            --html=report.html \
-            --self-contained-html
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run login tests
+        run: npx playwright test
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: test-report
-          path: report.html
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
