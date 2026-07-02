@@ -1,0 +1,19 @@
+{
+  "name": "mobile-tests-clean",
+  "version": "1.0.0",
+  "scripts": {
+    "test:bs:android": "wdio run wdio.bs.android.conf.ts",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.12.7",
+    "@wdio/cli": "^8.36.1",
+    "@wdio/local-runner": "^8.36.1",
+    "@wdio/mocha-framework": "^8.36.1",
+    "@wdio/spec-reporter": "^8.36.1",
+    "@wdio/types": "^8.36.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
